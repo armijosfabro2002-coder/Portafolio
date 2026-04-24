@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portafolio | Fabricio Armijos</title>
+    <link rel="stylesheet" href="home.css">
+</head>
+<body>
+
+    <nav>
+        <div class="logo">FA.</div>
+        <ul class="nav-links">
+            <li><a href="#inicio">Inicio</a></li>
+            <li><a href="#sobre-mi">Sobre Mí</a></li>
+            <li><a href="#portafolio">Proyectos</a></li>
+            <li><a href="#galeria">Galería</a></li>
+        </ul>
+    </nav>
+
+    <header id="inicio" class="hero">
+        <div class="hero-content">
+            <h1>Hola, soy Fabricio Armijos</h1>
+            <h2>Diseñador Multimedia</h2>
+            <a href="#portafolio" class="btn">Ver mi trabajo</a>
+        </div>
+    </header>
+
+    <section id="sobre-mi" class="about">
+        <div class="container">
+            <h2>Sobre Mí</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>Soy estudiante de Diseño Multimedia apasionado por crear ideas que conecten el arte y la tecnología. Me gusta explorar nuevas formas de expresión visual, experimentar con animación, diseño, video, y trabajar en proyectos donde la creatividad sea el motor principal. Me caracterizo por ser una persona responsable, puntual y con gran capacidad de adaptación a diferentes entornos laborales. Mantengo una actitud respetuosa y colaborativa, fomentando el trabajo en equipo y el cumplimiento eficiente de los objetivos propuestos.</p>
+                </div>
+                <div class="profile-img">
+                    <img src="Foto.png" alt="Foto de perfil">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="portafolio" class="portfolio">
+        <div class="container">
+            <h2>Proyectos Principales</h2>
+            <div class="grid">
+                
+                <a href="https://ciudadsecarea.netlify.app/" target="_blank" class="card-link">
+                    <div class="card">
+                        <img src="CiudadSecarea.png" alt="Proyecto Ciudad Secárea">
+                        <div class="card-info">
+                            <h3>Ciudad Secárea</h3>
+                            <p>Diseño web para un proyecto integrador</p>
+                        </div>
+                    </div>
+                </a>
+
+                <a href="https://fabroxpatro.itch.io/naunca" target="_blank" class="card-link">
+                    <div class="card">
+                        <img src="Game.png" alt="Juego Naún Ceniza Ardiente">
+                        <div class="card-info">
+                            <h3>Naún Ceniza Ardiente</h3>
+                            <p>Explora este proyecto donde se desarrolló en UNITY, un videojuego basado en el libro Polvo y Ceniza</p>
+                        </div>
+                    </div>
+                </a>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="galeria" class="gallery-section">
+        <div class="container">
+            <h2>Galería Visual</h2>
+            <div class="gallery-list">
+                
+                <div class="gallery-item full">
+                    <video controls>
+                        <source src="Reel.mp4" type="video/mp4">
+                    </video>
+                    <p class="gallery-desc">ANIMACIÓN 2D</p>
+                </div>
+
+                <div class="gallery-item full">
+                    <img src="6.jpg" alt="Trabajo visual" class="zoomable">
+                    <p class="gallery-desc">ILUSTRACIÓN DIGITAL</p>
+                </div>
+                
+                <div class="gallery-item full">
+                    <img src="2.JPG" alt="Trabajo visual" class="zoomable">
+                    <p class="gallery-desc">FOTOGRAFÍA</p>
+                </div>
+
+                <div class="gallery-item full">
+                    <a href="https://www.youtube.com/watch?v=6ZdVoPhKcP0" target="_blank">
+                        <img src="https://img.youtube.com/vi/6ZdVoPhKcP0/maxresdefault.jpg" alt="Ver Gameplay de Naún Ceniza Ardiente">
+                    </a>
+                    <p class="gallery-desc">Gameplay oficial del proyecto Naún Ceniza Ardiente. Haz clic en la imagen para ver el video en YouTube.</p>
+                </div>
+
+                <div class="gallery-item">
+                    <video controls>
+                        <source src="PelotaPapel.mp4" type="video/mp4">
+                    </video>
+                    <p class="gallery-desc">BOCETADO PREVIO A ANIMACIÓN</p>
+                </div>
+
+                <div class="gallery-item">
+                    <img src="7.jpeg" alt="Trabajo visual" class="zoomable">
+                    <p class="gallery-desc">ILUSTRACIÓN</p>
+                </div>
+
+                <div class="gallery-item">
+                    <img src="3.jpg" alt="Trabajo visual" class="zoomable">
+                    <p class="gallery-desc">FOTOGRAFÍA</p>
+                </div>
+
+                <div class="gallery-item">
+                    <img src="1.JPG" alt="Trabajo visual" class="zoomable">
+                    <p class="gallery-desc">FOTOGRAFÍA</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 Fabricio Armijos. Todos los derechos reservados.</p>
+    </footer>
+
+    <div id="modalImagen" class="modal">
+        <span class="cerrar">&times;</span>
+        <img class="modal-contenido" id="imgAmpliada">
+        <div id="textoModal"></div>
+    </div>
+
+    <script>
+        var modal = document.getElementById("modalImagen");
+        var imgModal = document.getElementById("imgAmpliada");
+        var textoModal = document.getElementById("textoModal");
+        var imagenes = document.querySelectorAll(".zoomable");
+
+        // Al hacer clic en una imagen, abrir el modal
+        imagenes.forEach(function(img) {
+            img.onclick = function() {
+                modal.style.display = "flex";
+                imgModal.src = this.src;
+                // Copia la descripción que está debajo de la imagen
+                textoModal.innerHTML = this.nextElementSibling.innerHTML;
+            }
+        });
+
+        // Al hacer clic en la X, cerrar el modal
+        var span = document.getElementsByClassName("cerrar")[0];
+        span.onclick = function() {
+            modal.style.display = "none";
+        }
+
+        // Al hacer clic fuera de la imagen (en el fondo oscuro), cerrar el modal
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+    </script>
+
+</body>
+</html>
